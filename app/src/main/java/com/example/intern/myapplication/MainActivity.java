@@ -15,14 +15,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-
-import static com.example.intern.myapplication.R.id.home;
-import static com.example.intern.myapplication.R.id.homeText;
-import static com.example.intern.myapplication.R.id.imageView3;
+//import static com.example.intern.myapplication.R.id.imageView3;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

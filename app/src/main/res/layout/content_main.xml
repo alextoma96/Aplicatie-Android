@@ -12,24 +12,25 @@
 
     <ImageView
         android:id="@+id/homeImg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/home"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="191dp"
-        android:layout_marginBottom="369dp" />
+        android:layout_width="375dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        app:srcCompat="@drawable/home" />
 
     <TextView
         android:id="@+id/homeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="200dp"
-        android:text="TextView"
-        android:layout_alignParentEnd="true" />
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="left|right"
+        android:layout_below="@+id/homeImg"
+        android:textColor="#0173B9"
+        android:textSize="15dp"/>
+
 
 
 </RelativeLayout>

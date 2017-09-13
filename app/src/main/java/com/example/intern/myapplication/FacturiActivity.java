@@ -35,15 +35,7 @@ public class FacturiActivity extends Fragment implements Constant{
 
     ListView lvFacturi;
     ArrayList<Factura> listaFacturi = new ArrayList<>();
-    //private static final String url = "http://10.0.2.2:8080/kepres2Web/api/rs/factura/list";
-    private static final String url = "https://api.myjson.com/bins/1979j1";
-
-   /* @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getActivity().setContentView(R.layout.activity_facturi);
-        consumeHttpConnection();
-    }*/
+    private static final String url = "http://192.168.196.2:8080/kepres2Web/api/rs/factura/list";
 
     public void initComponents() {
         lvFacturi = (ListView) getActivity().findViewById(R.id.lista_lv_facturi);
