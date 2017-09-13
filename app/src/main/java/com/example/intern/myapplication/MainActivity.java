@@ -15,7 +15,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+
+import static com.example.intern.myapplication.R.id.home;
+import static com.example.intern.myapplication.R.id.homeText;
+import static com.example.intern.myapplication.R.id.imageView3;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -27,8 +34,8 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-
+        TextView homeText = (TextView) findViewById(R.id.homeText);
+        homeText.setText(getResources().getString(R.string.homeTxt));
 
     // aici e test de git
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -73,8 +80,10 @@ public class MainActivity extends AppCompatActivity
                 fragment = new FacturiActivity();
                 break;
             case R.id.nav_aboutUs:
+                startActivity(new Intent(MainActivity.this, MainActivity.class));
                 break;
             case R.id.nav_utilizatori:
+                startActivity(new Intent(MainActivity.this, MainActivity.class));
                 break;
         }
         if (fragment != null){

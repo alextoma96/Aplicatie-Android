@@ -5,7 +5,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-    <string name="home">asta e apliactia noastra</string>
+    <string name="homeTxt">KepRes este o aplicație de gestiune a resurselor și fluxurilor de date ale unei companii. Ea permite urmărirea întregului proces de business: Contract - Comandă - Prestație - Factură - Plată. Aplicația permite introducerea și urmărirea clienților, proiectelor, comenzilor, precum și generarea facturilor din comenzi. Există și un serviciu în background care generează automat facturile si alertează persoanele vizate atunci când data de facturare a fost depașită.</string>
     <string name="toast_lvfacturi">Nu exista nici o factura!</string>
 
     <!-- TODO: Remove or change this placeholder text -->
