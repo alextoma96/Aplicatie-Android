@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity
                 fragment = new FacturiActivity();
                 break;
             case R.id.nav_aboutUs:
-                startActivity(new Intent(MainActivity.this, MainActivity.class));
+               fragment = new DetailsActivity();
                 break;
             case R.id.nav_utilizatori:
                 startActivity(new Intent(MainActivity.this, MainActivity.class));
