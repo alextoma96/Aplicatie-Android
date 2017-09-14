@@ -50,15 +50,5 @@ public class DetailsActivity extends Fragment {
         }
 
     };
-/*
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getActivity().setContentView(R.layout.activity_details);
-
-        mTextMessage = (TextView) getActivity().findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) getActivity().findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-    }*/
 
 }
