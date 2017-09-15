@@ -30,15 +30,9 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        WebView homeText3 = (WebView) findViewById(R.id.homeText3);
-        homeText3.loadData("<p style=\"text.align: justify\">" + getResources().getString(R.string.homeTxt3) + "</p>", "text.html", "UTF-8");
-
         WebView homeText = (WebView) findViewById(R.id.homeText);
-        homeText.loadData("<p style=\"text.align: justify\">" + getResources().getString(R.string.homeTxt) + "</p>", "text.html", "UTF-8");
+        homeText.loadData(getResources().getString(R.string.homeTxt), "", "UTF-8");
 
-
-        WebView homeText2 = (WebView) findViewById(R.id.homeText2);
-        homeText2.loadData("<p style=\"text.align: justify\">" + getResources().getString(R.string.homeTxt2) + "</p>", "text.html", "UTF-8");
 
         initIP();
 
