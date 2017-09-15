@@ -57,7 +57,7 @@
         android:textColor="#0173B9"
         android:textSize="15dp" />
 
-    <WebViewView
+    <WebView
         android:id="@+id/tv_appDesign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
         android:text="@string/tv_home_appDesign"
         android:textSize="10dp" />
 
-    <WebViewView
+    <WebView
         android:id="@+id/tv_appVersion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
