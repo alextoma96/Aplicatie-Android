@@ -1,7 +1,10 @@
 package com.example.intern.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -17,10 +20,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import static android.app.PendingIntent.getActivity;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    public static String url = "http://192.168.196.2:8080/kepres2Web/api/rs/factura/list";
+
+    //public static String ip = "192.168.196.2:8080";
+    //public static String url = "/kepres2Web/api/rs/factura/list";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +39,8 @@ public class MainActivity extends AppCompatActivity
         TextView homeText = (TextView) findViewById(R.id.homeText);
         homeText.setText(getResources().getString(R.string.homeTxt));
 
+        initIP();
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -39,6 +49,12 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    public void initIP(){
+        Context context = getApplicationContext();
+        if (PreferenceManager.getDefaultSharedPreferences(context).getString("ip", "defaultStringIfNothingFound") == "defaultStringIfNothingFound")
+            PreferenceManager.getDefaultSharedPreferences(context).edit().putString("ip", "192.168.196.2:8080").apply();
     }
 
     @Override
