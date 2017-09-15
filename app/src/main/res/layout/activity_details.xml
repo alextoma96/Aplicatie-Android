@@ -25,6 +25,13 @@
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:text="@string/title_dateGenerale" />
 
+        <TextView
+            android:id="@+id/dtEstEm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="50dp"/>
+
     </FrameLayout>
 
     <android.support.design.widget.BottomNavigationView

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class DetailsActivity extends Fragment {
@@ -26,20 +27,43 @@ public class DetailsActivity extends Fragment {
         mTextMessage = (TextView) getActivity().findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) getActivity().findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
     }
 
     private TextView mTextMessage;
+
+    private void initCampuri(){
+        TextView dt = (TextView) getActivity().findViewById(R.id.dtEstEm);
+        dt.setVisibility(View.INVISIBLE);
+    }
+
+    private void setDateGenerale(){
+        TextView dt = (TextView) getActivity().findViewById(R.id.dtEstEm);
+        dt.setVisibility(View.VISIBLE);
+        dt.setText("14/09/2017");
+    }
+
+    private void setFurnizori(){
+        TextView dt = (TextView) getActivity().findViewById(R.id.dtEstEm);
+        dt.setVisibility(View.VISIBLE);
+        dt.setText("15/09/2017");
+    }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            initCampuri();
+
             switch (item.getItemId()) {
                 case R.id.navigation_home:
+                    setDateGenerale();
+
                     mTextMessage.setText(R.string.title_dateGenerale);
                     return true;
                 case R.id.navigation_dashboard:
+                    setFurnizori();
                     mTextMessage.setText(R.string.title_furnizor);
                     return true;
                 case R.id.navigation_notifications:

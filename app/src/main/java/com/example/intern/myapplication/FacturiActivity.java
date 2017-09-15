@@ -35,7 +35,7 @@ public class FacturiActivity extends Fragment implements Constant{
 
     ListView lvFacturi;
     ArrayList<Factura> listaFacturi = new ArrayList<>();
-    private static final String url = "http://192.168.196.2:8080/kepres2Web/api/rs/factura/list";
+    private static final String url = R.string.ws_url;
 
     public void initComponents() {
         lvFacturi = (ListView) getActivity().findViewById(R.id.lista_lv_facturi);
