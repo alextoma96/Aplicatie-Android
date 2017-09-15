@@ -38,6 +38,9 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        TextView homeText3 = (TextView) findViewById(R.id.homeText3);
+        homeText3.setText(getResources().getString(R.string.homeTxt3));
+
         TextView homeText = (TextView) findViewById(R.id.homeText);
         homeText.setText(getResources().getString(R.string.homeTxt));
 

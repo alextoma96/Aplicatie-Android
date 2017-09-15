@@ -5,11 +5,12 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="homeTxt3">Bine ați venit!</string>
     <string name="homeTxt">KepRes este o aplicație de gestiune a resurselor și fluxurilor de date ale unei companii.
                            Ea permite urmărirea procesului de business: Contract - Comandă - Prestație - Factură - Plată.</string>
     <string name="homeTxt2">
-                           Aceasta este o aplicație proiectată si dezvoltată de catre Kepler-Rominfo.
-                           Versiunea de Android a aplicatiei a fost realizata de o echipa de 3 cursanti: Iulia, Alexandru si Andrei.</string>
+                           Aceasta este o aplicație proiectată și dezvoltată de către Kepler-Rominfo.
+                           Versiunea de Android a aplicației a fost realizată de o echipă de 3 cursanți: Iulia, Alexandru și Andrei.</string>
     <string name="toast_lvfacturi">Nu exista nici o factura!</string>
 
 
@@ -19,4 +20,6 @@
     <string name="title_dateGenerale">Date generale</string>
     <string name="title_client">Client</string>
     <string name="title_furnizor">Furnizor</string>
+    <string name="tv_home_appDesign">Designed and built by Kepler Rominfo 2017 - 2018 © All rights reserved.</string>
+    <string name="tv_home_appVersion">Version 2.0.1 alpha (Dev)</string>
 </resources>

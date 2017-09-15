@@ -9,7 +9,6 @@
     tools:context="com.example.intern.myapplication.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-
     <ImageView
         android:id="@+id/homeImg"
         android:layout_width="375dp"
@@ -20,7 +19,7 @@
         app:srcCompat="@drawable/home" />
 
     <TextView
-        android:id="@+id/homeText"
+        android:id="@+id/homeText3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -30,22 +29,54 @@
         android:gravity="left|right"
         android:layout_below="@+id/homeImg"
         android:textColor="#0173B9"
-        android:textSize="15dp"
-        />
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/homeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textStyle="italic"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="left|right"
+        android:layout_below="@+id/homeText3"
+        android:textColor="#0173B9"
+        android:textSize="15dp" />
+
     <TextView
         android:id="@+id/homeText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="italic"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:gravity="left|right"
-        android:layout_below="@+id/homeImg"
+        android:layout_below="@+id/homeText"
         android:textColor="#0173B9"
-        android:textSize="15dp"
-        />
+        android:textSize="15dp" />
 
+    <TextView
+        android:id="@+id/tv_appDesign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/tv_appVersion"
+        android:layout_marginBottom="10dp"
+        android:textColor="#7d8184"
+        android:text="@string/tv_home_appDesign"
+        android:textSize="10dp" />
 
+    <TextView
+        android:id="@+id/tv_appVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:textColor="#7d8184"
+        android:text="@string/tv_home_appVersion"
+        android:textSize="10dp" />
 
 </RelativeLayout>
