@@ -2,15 +2,9 @@ package com.example.intern.myapplication;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import android.support.design.widget.NavigationView;
-
 import android.preference.PreferenceManager;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -20,9 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
-
-import static android.app.PendingIntent.getActivity;
+import android.webkit.WebView;
 
 
 public class MainActivity extends AppCompatActivity
@@ -38,15 +30,9 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        TextView homeText3 = (TextView) findViewById(R.id.homeText3);
-        homeText3.setText(getResources().getString(R.string.homeTxt3));
+        WebView homeText = (WebView) findViewById(R.id.homeText);
+        homeText.loadData(getResources().getString(R.string.homeTxt), "", "UTF-8");
 
-        TextView homeText = (TextView) findViewById(R.id.homeText);
-        homeText.setText(getResources().getString(R.string.homeTxt));
-
-
-        TextView homeText2 = (TextView) findViewById(R.id.homeText2);
-        homeText2.setText(getResources().getString(R.string.homeTxt2));
 
         initIP();
 
@@ -82,14 +68,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+
 
     public void displaySelectedScreen(int id){
         Fragment fragment = null;
