@@ -17,11 +17,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-//import static com.example.intern.myapplication.R.id.imageView3;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-// test toma pentru git
+    public static String url = "http://192.168.196.2:8080/kepres2Web/api/rs/factura/list";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +31,6 @@ public class MainActivity extends AppCompatActivity
         TextView homeText = (TextView) findViewById(R.id.homeText);
         homeText.setText(getResources().getString(R.string.homeTxt));
 
-    // aici e test de git
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -75,7 +73,10 @@ public class MainActivity extends AppCompatActivity
                 fragment = new FacturiActivity();
                 break;
             case R.id.nav_aboutUs:
-                startActivity(new Intent(MainActivity.this, MainActivity.class));
+               fragment = new DetailsActivity();
+                break;
+            case R.id.nav_settings:
+                fragment = new SettingsActivity();
                 break;
             case R.id.nav_utilizatori:
                 startActivity(new Intent(MainActivity.this, MainActivity.class));

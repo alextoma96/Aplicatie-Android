@@ -19,6 +19,8 @@ import Commons.Factura;
 import Networking.HttpConnection;
 import Utils.Constant;
 
+import static com.example.intern.myapplication.MainActivity.url;
+
 public class FacturiActivity extends Fragment implements Constant{
     @Nullable
     @Override
@@ -35,7 +37,7 @@ public class FacturiActivity extends Fragment implements Constant{
 
     ListView lvFacturi;
     ArrayList<Factura> listaFacturi = new ArrayList<>();
-    private static final String url = "http://192.168.196.2:8080/kepres2Web/api/rs/factura/list";
+
 
     public void initComponents() {
         lvFacturi = (ListView) getActivity().findViewById(R.id.lista_lv_facturi);
