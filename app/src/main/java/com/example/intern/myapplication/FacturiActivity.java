@@ -1,6 +1,7 @@
 package com.example.intern.myapplication;
 
 import android.content.Intent;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -67,7 +68,7 @@ public class FacturiActivity extends Fragment implements Constant{
                 }
             }
         };
-       // connection.execute("http://" + ip + url);
+        connection.execute("http://" + PreferenceManager.getDefaultSharedPreferences(getContext()).getString("ip", "192.168.196.2:8080") + "/kepres2Web/api/rs/factura/list");
     }
 
 }
