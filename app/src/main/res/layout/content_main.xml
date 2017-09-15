@@ -19,23 +19,10 @@
         app:srcCompat="@drawable/home" />
 
     <WebView
-        android:id="@+id/homeText3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:textStyle="italic"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:gravity="left|right"
-        android:layout_below="@+id/homeImg"
-        android:textColor="#0173B9"
-        android:textSize="18dp" />
-
-    <WebView
         android:id="@+id/homeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="280dp"
         android:textStyle="italic"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -44,18 +31,6 @@
         android:textColor="#0173B9"
         android:textSize="15dp" />
 
-    <WebView
-        android:id="@+id/homeText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="italic"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:gravity="left|right"
-        android:layout_below="@+id/homeText"
-        android:textColor="#0173B9"
-        android:textSize="15dp" />
 
     <WebView
         android:id="@+id/tv_appDesign"

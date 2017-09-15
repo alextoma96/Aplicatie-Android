@@ -12,11 +12,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
-import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity
@@ -33,7 +31,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         WebView homeText = (WebView) findViewById(R.id.homeText);
-        homeText.loadData(getResources().getString(R.string.homeTxt), null, "UTF-8");
+        homeText.loadData("<p style=\"text.align: justify\">" + getResources().getString(R.string.homeTxt) + "</p>", null, "UTF-8");
 
 
         initIP();
