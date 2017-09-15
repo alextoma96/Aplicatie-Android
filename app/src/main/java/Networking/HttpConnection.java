@@ -97,8 +97,8 @@ public class HttpConnection extends AsyncTask <String, Void, ArrayList<Factura>>
 //                JSONObject jsonEmisDe = jsonFactura.getJSONObject("emisDe");
                // Angajat emisDe = parseAngajat(jsonEmisDe);
                 String observatii = jsonFactura.getString("observatii");
-                JSONObject jsonAngajat = jsonFactura.getJSONObject("angajat");
-                Angajat responsabil = parseAngajat(jsonAngajat);
+//                JSONObject jsonAngajat = jsonFactura.getJSONObject("angajat");
+  //              Angajat responsabil = parseAngajat(jsonAngajat);
                 String dtEstimataString = jsonFactura.getString("dtEstimata");
                 Date dtEstimata = new Date();
 //                if(dtEmitereString != null) {
@@ -122,7 +122,7 @@ public class HttpConnection extends AsyncTask <String, Void, ArrayList<Factura>>
 //                        memo, responsabil, creatDe, validatDe, emisDe, moneda, statusFactura, client,
 //                        identitateCompanie, cotaTVA, observatii);
             Factura factura = new Factura(serieFactura, numar, dtEstimata, dtEmitere, dtScadenta, suma, tva, total,
-                    memo, responsabil, null, null, null, moneda, statusFactura, client,
+                    memo, null, null, null, null, moneda, statusFactura, client,
                     identitateCompanie, cotaTVA, observatii);
                 listaFacturi.add(factura);
                 for (Factura f : listaFacturi) {
