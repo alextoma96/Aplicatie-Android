@@ -22,26 +22,4 @@
             android:icon="@drawable/ic_settings_black_24dp"
             android:title="Setari" />
     </group>
-
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_design"
-            android:icon="@drawable/ic_settings_black_24dp"
-            android:title="Setari" />
-    </group>
-
-
-    <TextView
-        android:id="@+id/tvDesign"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_home_appDesign"
-        android:textColor="#7b7f83" />
-
-    <TextView
-        android:id="@+id/tvVersion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_home_appVersion"
-        android:textColor="#7b7f83" />
 </menu>

@@ -32,6 +32,15 @@
     <string name="title_dateGenerale">Date generale</string>
     <string name="title_client">Client</string>
     <string name="title_furnizor">Furnizor</string>
-    <string name="tv_home_appDesign">Designed and built by Kepler Rominfo 2017 - 2018 © All rights reserved.</string>
+
+    <string name="tv_home_appDesign">Designed and built by Kepler Rominfo </string>
+    <string name="tv_home_appRights">2017-2018 © All rights reserved</string>
     <string name="tv_home_appVersion">Version 2.0.1 alpha (Dev)</string>
+
+    <string name="login_username">Username</string>
+    <string name="login_password">Parola</string>
+    <string name="login_remember">Tine-ma minte</string>
+    <string name="login_new_user">New User?</string>
+    <string name="login_btn_login">Autentificare</string>
+    <string name="login_toast2">"Username sau parola gresita"</string>
 </resources>
