@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         WebView homeText = (WebView) findViewById(R.id.homeText);
-        homeText.loadData(getResources().getString(R.string.homeTxt), "", "UTF-8");
+        homeText.loadData("<p style=\"text.align: justify\">" + getResources().getString(R.string.homeTxt) + "</p>", null, "UTF-8");
 
 
         initIP();
