@@ -19,7 +19,7 @@ import Commons.Factura;
 import Networking.HttpConnection;
 import Utils.Constant;
 
-import static com.example.intern.myapplication.MainActivity.url;
+
 
 public class FacturiActivity extends Fragment implements Constant{
     @Nullable
@@ -67,7 +67,7 @@ public class FacturiActivity extends Fragment implements Constant{
                 }
             }
         };
-        connection.execute(url);
+       // connection.execute("http://" + ip + url);
     }
 
 }
