@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +16,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import Commons.Factura;
-import Networking.HttpConnection;
+import Networking.HttpConnectionFacturi;
 import Utils.Constant;
 
 
@@ -56,7 +55,7 @@ public class FacturiActivity extends Fragment implements Constant{
     }
 
     public void consumeHttpConnection() {
-        HttpConnection connection = new HttpConnection() {
+        HttpConnectionFacturi connection = new HttpConnectionFacturi() {
             @Override
             protected void onPostExecute(ArrayList<Factura> facturas) {
                 initComponents();
@@ -68,7 +67,7 @@ public class FacturiActivity extends Fragment implements Constant{
                 }
             }
         };
-        connection.execute("http://" + PreferenceManager.getDefaultSharedPreferences(getContext()).getString("ip", "192.168.196.2:8080") + "/kepres203/api/rs/factura/list");
+        connection.execute("http://" + PreferenceManager.getDefaultSharedPreferences(getContext()).getString("ip", "192.168.8.98") + "/kepres203/api/rs/factura/list");
     }
 
 }

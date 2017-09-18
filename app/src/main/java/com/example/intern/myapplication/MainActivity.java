@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity
                 fragment = new SettingsActivity();
                 break;
             case R.id.nav_utilizatori:
-                startActivity(new Intent(MainActivity.this, MainActivity.class));
+                fragment = new UtilizatoriActivity();
                 break;
         }
         if (fragment != null){

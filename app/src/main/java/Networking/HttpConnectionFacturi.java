@@ -29,13 +29,14 @@ import Commons.IdentitateCompanie;
 import Commons.Moneda;
 import Commons.SerieFactura;
 import Commons.StatusFactura;
+import Commons.Utilizator;
 import Utils.Constant;
 
 /**
  * Created by idanciu on 9/12/2017.
  */
 
-public class HttpConnection extends AsyncTask <String, Void, ArrayList<Factura>> implements Constant{
+public class HttpConnectionFacturi extends AsyncTask <String, Void, ArrayList<Factura>> implements Constant{
     URL url;
     HttpURLConnection connection;
     SimpleDateFormat dateFormat = SIMPLE_DATE_FORMAT;
@@ -76,64 +77,82 @@ public class HttpConnection extends AsyncTask <String, Void, ArrayList<Factura>>
         ArrayList<Factura> listaFacturi = new ArrayList<>();
         JSONArray jsonArray = new JSONArray(JSONString);
         for (int i = 0; i < jsonArray.length(); i++) {
-   //         try {
                 JSONObject jsonFactura = jsonArray.getJSONObject(i);
-                Double total = jsonFactura.getDouble("total");
-                Double tva = jsonFactura.getDouble("tva");
-                JSONObject jsonSerieFactura = jsonFactura.getJSONObject("serieFactura");
-                SerieFactura serieFactura = parseSerieFactura(jsonSerieFactura);
-                String numar = jsonFactura.getString("numar");
-                Date dtScadenta = new Date();
-                if(!jsonFactura.getString("dtScadenta").isEmpty()) {
-                    String dtScadentaString = jsonFactura.getString("dtScadenta");
-                    dtScadenta = dateFormat.parse(dtScadentaString);
-                }
-                JSONObject jsonStatusFactura = jsonFactura.getJSONObject("statusFactura");
-                StatusFactura statusFactura = parseStatusFactura(jsonStatusFactura);
-                String dtEmitereString = jsonFactura.getString("dtEmitere");
-                Date dtEmitere = new Date();
-//                if(dtEmitereString != null) {
-//                    dtEmitere = dateFormat.parse(dtEmitereString);
-//                }
-//                JSONObject jsonValidatDe = jsonFactura.getJSONObject("validatDe");
-//                JSONObject jsonEmisDe = jsonFactura.getJSONObject("emisDe");
-               // Angajat emisDe = parseAngajat(jsonEmisDe);
-                String observatii = jsonFactura.getString("observatii");
-//                JSONObject jsonAngajat = jsonFactura.getJSONObject("angajat");
-  //              Angajat responsabil = parseAngajat(jsonAngajat);
-                String dtEstimataString = jsonFactura.getString("dtEstimata");
-                Date dtEstimata = new Date();
-//                if(dtEmitereString != null) {
-//                    dtEstimata = dateFormat.parse(dtEstimataString);
-//                }
-                JSONObject jsonClient = jsonFactura.getJSONObject("client");
-                Client client = parseClient(jsonClient);
-                Double suma = jsonFactura.getDouble("suma");
-                JSONObject jsonMoneda = jsonFactura.getJSONObject("moneda");
-                Moneda moneda = parseMoneda(jsonMoneda);
-                JSONObject jsonCotaTVA = jsonFactura.getJSONObject("cotaTVA");
-                CotaTVA cotaTVA = parseCotaTVA(jsonCotaTVA);
-                JSONObject jsonIdentitateCompanie = jsonFactura.getJSONObject("identitateCompanie");
-                IdentitateCompanie identitateCompanie = parseIdentitateCompanie(jsonIdentitateCompanie);
-              //  JSONObject jsonCreatDe = jsonFactura.getJSONObject("creatDe");
-               // Angajat creatDe = parseAngajat(jsonCreatDe);
-                String memo = jsonFactura.getString("memo");
-                Integer id = jsonFactura.getInt("id");
+            Double total = jsonFactura.getDouble("total");
+            Double tva = jsonFactura.getDouble("tva");
+            String numar = jsonFactura.getString("numar");
+            String observatii = jsonFactura.getString("observatii");
+            Double suma = jsonFactura.getDouble("suma");
+            String memo = jsonFactura.getString("memo");
+            Integer id = jsonFactura.getInt("id");
 
-//                Factura factura = new Factura(serieFactura, numar, dtEstimata, dtEmitere, dtScadenta, suma, tva, total,
-//                        memo, responsabil, creatDe, validatDe, emisDe, moneda, statusFactura, client,
-//                        identitateCompanie, cotaTVA, observatii);
+            JSONObject jsonSerieFactura = jsonFactura.getJSONObject("serieFactura");
+            SerieFactura serieFactura = parseSerieFactura(jsonSerieFactura);
+
+            JSONObject jsonStatusFactura = jsonFactura.getJSONObject("statusFactura");
+            StatusFactura statusFactura = parseStatusFactura(jsonStatusFactura);
+
+            Date dtScadenta = new Date();
+//           if(!jsonFactura.getString("dtScadenta").isEmpty()) {
+//              String dtScadentaString = jsonFactura.getString("dtScadenta");
+//              dtScadenta = dateFormat.parse(dtScadentaString);
+//          }
+
+            Date dtEmitere = new Date();
+//          if(!jsonFactura.isNull("dtEmitere")) {
+//            String dtEmitereString = jsonFactura.getString("dtEmitere");
+//            dtEmitere = dateFormat.parse(dtEmitereString);
+//          }
+
+            Angajat validatDe = null;
+            if(!jsonFactura.isNull("validatDe")) {
+                JSONObject jsonValidatDe = jsonFactura.getJSONObject("validatDe");
+                validatDe = parseAngajat(jsonValidatDe);
+            }
+
+            Angajat emisDe = null;
+            if(!jsonFactura.isNull("emisDe")) {
+                JSONObject jsonEmisDe = jsonFactura.getJSONObject("emisDe");
+                emisDe = parseAngajat(jsonEmisDe);
+            }
+
+            Angajat responsabil = null;
+            if(!jsonFactura.isNull("angajat")) {
+                JSONObject jsonAngajat = jsonFactura.getJSONObject("angajat");
+                responsabil = parseAngajat(jsonAngajat);
+            }
+
+            String dtEstimataString = jsonFactura.getString("dtEstimata");
+            Date dtEstimata = new Date();
+//          if(dtEmitereString != null) {
+//             dtEstimata = dateFormat.parse(dtEstimataString);
+//          }
+
+            JSONObject jsonClient = jsonFactura.getJSONObject("client");
+            Client client = parseClient(jsonClient);
+
+            JSONObject jsonMoneda = jsonFactura.getJSONObject("moneda");
+            Moneda moneda = parseMoneda(jsonMoneda);
+
+            JSONObject jsonCotaTVA = jsonFactura.getJSONObject("cotaTVA");
+            CotaTVA cotaTVA = parseCotaTVA(jsonCotaTVA);
+
+            JSONObject jsonIdentitateCompanie = jsonFactura.getJSONObject("identitateCompanie");
+            IdentitateCompanie identitateCompanie = parseIdentitateCompanie(jsonIdentitateCompanie);
+
+            Angajat creatDe = null;
+            if(!jsonFactura.isNull("creatDe")) {
+                JSONObject jsonCreatDe = jsonFactura.getJSONObject("creatDe");
+                creatDe = parseAngajat(jsonCreatDe);
+            }
+
+//          Factura factura = new Factura(serieFactura, numar, dtEstimata, dtEmitere, dtScadenta, suma, tva, total,
+//                                        memo, responsabil, creatDe, validatDe, emisDe, moneda, statusFactura, client,
+//                                        identitateCompanie, cotaTVA, observatii);
             Factura factura = new Factura(serieFactura, numar, dtEstimata, dtEmitere, dtScadenta, suma, tva, total,
-                    memo, null, null, null, null, moneda, statusFactura, client,
-                    identitateCompanie, cotaTVA, observatii);
-                listaFacturi.add(factura);
-                for (Factura f : listaFacturi) {
-                    Log.i("factura", f.toString());
-                }
-
-//            } catch (ParseException e) {
-//                    e.printStackTrace();
-//            }
+                                          memo, responsabil, creatDe, validatDe, emisDe, moneda, statusFactura, client,
+                                          identitateCompanie, cotaTVA, observatii);
+            listaFacturi.add(factura);
         }
         return listaFacturi;
 }
@@ -176,13 +195,9 @@ public class HttpConnection extends AsyncTask <String, Void, ArrayList<Factura>>
     }
 
     private Moneda parseMoneda(JSONObject object) throws JSONException {
-//        Boolean implicita = object.getBoolean("implicita");
-  //      Boolean referinta = object.getBoolean("referinta");
         String cod = object.getString("cod");
         String nume = object.getString("nume");
-//        return new Moneda(cod, nume, implicita, referinta);
         return new Moneda(cod, nume, null, null);
-// da
     }
 
     private CotaTVA parseCotaTVA(JSONObject object) throws JSONException {
