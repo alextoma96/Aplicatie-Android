@@ -65,12 +65,14 @@ public class HttpConnection extends AsyncTask <String, Void, ArrayList<Factura>>
             e.printStackTrace();
         } catch (JSONException e) {
             e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
 
         return null;
     }
 
-    private ArrayList<Factura> parseHttpResponse(String JSONString) throws JSONException {
+    private ArrayList<Factura> parseHttpResponse(String JSONString) throws JSONException, ParseException {
         ArrayList<Factura> listaFacturi = new ArrayList<>();
         JSONArray jsonArray = new JSONArray(JSONString);
         for (int i = 0; i < jsonArray.length(); i++) {
@@ -81,11 +83,11 @@ public class HttpConnection extends AsyncTask <String, Void, ArrayList<Factura>>
                 JSONObject jsonSerieFactura = jsonFactura.getJSONObject("serieFactura");
                 SerieFactura serieFactura = parseSerieFactura(jsonSerieFactura);
                 String numar = jsonFactura.getString("numar");
-                String dtScadentaString = jsonFactura.getString("dtScadenta");
                 Date dtScadenta = new Date();
-//                if(dtScadentaString != null) {
-//                    dtScadenta = dateFormat.parse(dtScadentaString);
-//                }
+                if(!jsonFactura.getString("dtScadenta").isEmpty()) {
+                    String dtScadentaString = jsonFactura.getString("dtScadenta");
+                    dtScadenta = dateFormat.parse(dtScadentaString);
+                }
                 JSONObject jsonStatusFactura = jsonFactura.getJSONObject("statusFactura");
                 StatusFactura statusFactura = parseStatusFactura(jsonStatusFactura);
                 String dtEmitereString = jsonFactura.getString("dtEmitere");
