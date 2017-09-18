@@ -16,12 +16,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
 
-import Commons.Factura;
-
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    //public static String ip = "192.168.196.2:8080";
+    //public static String url = "/kepres2Web/api/rs/factura/list";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +31,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         WebView homeText = (WebView) findViewById(R.id.homeText);
-        homeText.loadUrl("file:///android_asset/index.html"); 
-
-
+        homeText.loadUrl("file:///android_asset/index.html");
 
         initIP();
 
@@ -50,7 +48,7 @@ public class MainActivity extends AppCompatActivity
     public void initIP(){
         Context context = getApplicationContext();
         if (PreferenceManager.getDefaultSharedPreferences(context).getString("ip", "defaultStringIfNothingFound") == "defaultStringIfNothingFound")
-            PreferenceManager.getDefaultSharedPreferences(context).edit().putString("ip", "http://192.168.8.98").apply();
+            PreferenceManager.getDefaultSharedPreferences(context).edit().putString("ip", "192.168.196.2:8080").apply();
     }
 
     @Override
@@ -78,7 +76,7 @@ public class MainActivity extends AppCompatActivity
                 fragment = new FacturiActivity();
                 break;
             case R.id.nav_aboutUs:
-                fragment = new DetailsActivity();
+               fragment = new DetailsActivity();
                 break;
             case R.id.nav_settings:
                 fragment = new SettingsActivity();
