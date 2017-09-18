@@ -31,8 +31,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         WebView homeText = (WebView) findViewById(R.id.homeText);
-        homeText.loadData("<p style=\"text.align: justify\">" + getResources().getString(R.string.homeTxt) + "</p>", null, "UTF-8");
-
+        homeText.loadUrl("file:///android_asset/index.html");
 
         initIP();
 
@@ -49,7 +48,7 @@ public class MainActivity extends AppCompatActivity
     public void initIP(){
         Context context = getApplicationContext();
         if (PreferenceManager.getDefaultSharedPreferences(context).getString("ip", "defaultStringIfNothingFound") == "defaultStringIfNothingFound")
-            PreferenceManager.getDefaultSharedPreferences(context).edit().putString("ip", "192.168.196.2:8080").apply();
+            PreferenceManager.getDefaultSharedPreferences(context).edit().putString("ip", "192.168.8.98").apply();
     }
 
     @Override
