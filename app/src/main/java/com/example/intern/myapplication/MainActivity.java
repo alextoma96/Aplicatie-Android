@@ -3,7 +3,6 @@ package com.example.intern.myapplication;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -17,12 +16,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
 
+import Commons.Factura;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    //public static String ip = "192.168.196.2:8080";
-    //public static String url = "/kepres2Web/api/rs/factura/list";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +78,7 @@ public class MainActivity extends AppCompatActivity
                 fragment = new FacturiActivity();
                 break;
             case R.id.nav_aboutUs:
-               fragment = new DetailsActivity();
+                fragment = new DetailsActivity();
                 break;
             case R.id.nav_settings:
                 fragment = new SettingsActivity();
