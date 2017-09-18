@@ -68,7 +68,7 @@ public class FacturiActivity extends Fragment implements Constant{
                 }
             }
         };
-        connection.execute("http://" + PreferenceManager.getDefaultSharedPreferences(getContext()).getString("ip", "192.168.196.2:8080") + "/kepres2Web/api/rs/factura/list");
+        connection.execute("http://" + PreferenceManager.getDefaultSharedPreferences(getContext()).getString("ip", "192.168.196.2:8080") + "/kepres203/api/rs/factura/list");
     }
 
 }
