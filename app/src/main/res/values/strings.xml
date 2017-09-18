@@ -5,24 +5,6 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-    <string name="homeTxt"><![CDATA[
-                                      <style>
-                                            div {
-                                                  text-align: justify;
-                                                  text-justify: inter-word;
-                                                }
-                                      </style>
-                                      <font color="#0173B9">
-                                      <div><b>Bine a&#355;i venit!</b> <br /><br />
-                                      <i>KepRes este o aplica&#355;ie de gestiune a resurselor &#351;i fluxurilor de date ale unei companii.
-                                      Ea permite urm&#259;rirea procesului de business: Contract - Comand&#259; - Presta&#355;ie - Factur&#259; - Plat&#259; .
-                                      <br />
-                                      <br />
-                                      Aceasta este o aplica&#355;ie proiectat&#259; &#351;i dezvoltat&#259; de c&#259;tre Kepler-Rominfo.
-                                      Versiunea de Android a aplica&#355;iei a fost realizat&#259; de o echip&#259; de 3 cursan&#355;i: Iulia, Alexandru &#351;i Andrei.</i>
-                                      </font></div>
-                           ]]>
-    </string>
     <string name="toast_lvfacturi">Nu exista nici o factura!</string>
 
 
