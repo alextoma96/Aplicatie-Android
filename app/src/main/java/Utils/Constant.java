@@ -11,4 +11,6 @@ public interface Constant {
     public static String DATE_FORMAT = "dd.mm.yyyy";
     public static SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat(DATE_FORMAT);
     public String FACTURA_KEY = "factura";
+    public static final int PREFERENCE_MODE_PRIVATE=0;
+    public static final String PREFERENCE_FILE="UserPreferenceFile";
 }
