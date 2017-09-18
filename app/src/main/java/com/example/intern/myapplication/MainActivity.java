@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         WebView homeText = (WebView) findViewById(R.id.homeText);
-        homeText.loadUrl("file:///android_asset/index.html");
+        homeText.loadUrl("file:///android_asset/index.html"); 
 
 
 
