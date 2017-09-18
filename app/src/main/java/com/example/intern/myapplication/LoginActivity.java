@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,9 +13,11 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Commons.Utilizator;
+import Networking.HttpConnectionUtilizatori;
 import Utils.Constant;
 
 public class LoginActivity extends AppCompatActivity implements Constant{
@@ -26,6 +29,8 @@ public class LoginActivity extends AppCompatActivity implements Constant{
     String users=null;
     String pass=null;
     Integer id=null;
+
+    List<Utilizator> userList = null;
 
     private SharedPreferences preferenceSettings;
     private SharedPreferences.Editor preferenceEditor;
@@ -91,8 +96,7 @@ public class LoginActivity extends AppCompatActivity implements Constant{
     }
 
     public boolean validation(String u, String p) {
-        List<Utilizator> userList = null;
-
+        consumeHttpConnection();
         for (Utilizator user : userList) {
             if (u.equals(user.getUsername()) && p.equals(user.getParola())) {
                 users=user.getUsername();
@@ -103,7 +107,23 @@ public class LoginActivity extends AppCompatActivity implements Constant{
             return true;
         }
         else{
-            return true;
+            return false;
         }
+    }
+
+    public void consumeHttpConnection() {
+        HttpConnectionUtilizatori connection = new HttpConnectionUtilizatori() {
+            @Override
+            protected void onPostExecute(ArrayList<Utilizator> utilizators) {
+                super.onPostExecute(utilizators);
+                if (utilizators != null) {
+                    userList.addAll(utilizators);
+                }
+                for(Utilizator u : userList) {
+                    Log.i("user", u.getNume());
+                }
+            }
+        };
+        connection.execute("http://" + PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString("ip", "192.168.8.98") + "/kepres203/api/rs/utilizator/list");
     }
 }

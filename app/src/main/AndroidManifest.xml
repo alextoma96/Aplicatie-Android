@@ -18,18 +18,19 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FacturiActivity" />
+        <fragment android:name=".FacturiActivity" />
         <activity android:name=".FacturaDetailsActivity" />
-        <activity
+        <fragment
             android:name=".DetailsActivity"
             android:label="@string/title_activity_details" />
-        <activity android:name=".SettingsActivity" />
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".UtilizatoriActivity"></activity>
+        <fragment android:name=".SettingsActivity" />
+        <activity android:name=".LoginActivity">
+
+        </activity>
+        <fragment android:name=".UtilizatoriActivity"></fragment>
     </application>
 
 </manifest>
