@@ -15,8 +15,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
 
-import Fragments.ArticoleFragment;
-
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -77,7 +75,7 @@ public class MainActivity extends AppCompatActivity
                 fragment = new FacturiActivity();
                 break;
             case R.id.nav_aboutUs:
-               fragment = new ArticoleFragment();
+               fragment = new DetailsActivity();
                 break;
             case R.id.nav_settings:
                 fragment = new SettingsActivity();

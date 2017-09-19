@@ -8,6 +8,12 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+
     <include
         layout="@layout/app_bar_main"
         android:layout_width="match_parent"
