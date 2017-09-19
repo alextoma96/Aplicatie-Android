@@ -8,16 +8,24 @@ import android.os.Parcelable;
  */
 
 public class StatusFactura implements Parcelable{
-    private Integer id;
     private String status;
+    private Integer nrFacturi;
 
-    public StatusFactura(Integer id, String status) {
-        this.id = id;
+    public StatusFactura(String status) {
         this.status = status;
     }
 
-    protected StatusFactura(Parcel in) {
-        id = in.readInt();
+
+    public StatusFactura(String status, Integer nrFacturi) {
+        this.status = status;
+        this.nrFacturi = nrFacturi;
+    }
+
+    public StatusFactura(Integer id, String status) {
+        this.status = status;
+    }
+
+    public StatusFactura(Parcel in) {
         status = in.readString();
     }
 
@@ -29,26 +37,21 @@ public class StatusFactura implements Parcelable{
         public StatusFactura[] newArray(int size) { return new StatusFactura[size]; }
     };
 
-    public Integer getId() { return id; }
-    public StatusFactura setId(Integer id) { this.id = id; return this;}
-
     public String getStatus() { return status; }
     public StatusFactura setStatus(String status) { this.status = status; return this;}
 
     @Override
     public String toString() {
-        return "StatusFactura{" +
-                "id=" + id +
-                ", status='" + status + '\'' +
-                '}';
+        return status +  "(" + nrFacturi + " facturi)";
     }
+
+
 
     @Override
     public int describeContents() { return 0; }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(id);
         dest.writeString(status);
     }
 }

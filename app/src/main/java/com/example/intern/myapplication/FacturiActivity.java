@@ -15,6 +15,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import Commons.Factura;
 import Networking.HttpConnectionFacturi;
@@ -37,7 +39,7 @@ public class FacturiActivity extends Fragment implements Constant{
     }
 
     ListView lvFacturi;
-    ArrayList<Factura> listaFacturi = new ArrayList<>();
+    public static ArrayList<Factura> listaFacturi = new ArrayList<>();
 
 
     public void initComponents() {
@@ -47,9 +49,6 @@ public class FacturiActivity extends Fragment implements Constant{
         lvFacturi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                /*Intent intent = new Intent(getActivity().getApplicationContext(), FacturaDetailsActivity.class);
-                intent.putExtra(FACTURA_KEY, position);
-                startActivity(intent);*/
                 Fragment fragment = new DetailsActivity();
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                 Bundle bundle = new Bundle();
@@ -77,5 +76,4 @@ public class FacturiActivity extends Fragment implements Constant{
         };
         connection.execute("http://" + PreferenceManager.getDefaultSharedPreferences(getContext()).getString("ip", "192.168.8.98") + "/kepres203/api/rs/factura/list");
     }
-
 }
