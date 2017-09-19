@@ -1,10 +1,9 @@
 package com.example.intern.myapplication;
 
-import android.content.Intent;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import Commons.Factura;
+import Fragments.ArticoleFragment;
 import Networking.HttpConnectionFacturi;
 import Utils.Constant;
 
@@ -49,12 +49,19 @@ public class FacturiActivity extends Fragment implements Constant{
         lvFacturi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 Fragment fragment = new DetailsActivity();
+
+                /*Intent intent = new Intent(getActivity().getApplicationContext(), FacturaDetailsActivity.class);
+                intent.putExtra(FACTURA_KEY, position);
+                startActivity(intent);*/
+               //Fragment fragment = new ArticoleFragment();
+
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                 Bundle bundle = new Bundle();
                 int idd = (int) id;
-                bundle.putString("ceva", listaFacturi.get(idd).getClient().getNume().toString());
-                fragment.setArguments(bundle);
+                //bundle.putString("ceva", listaFacturi.get(idd).getClient().getNume().toString());
+                //fragment.setArguments(bundle);
                 ft.replace(R.id.content_main, fragment);
                 ft.commit();
             }

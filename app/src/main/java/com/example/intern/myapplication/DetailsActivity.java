@@ -1,82 +1,91 @@
 package com.example.intern.myapplication;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.TextView;
+
+import Fragments.ClientFragment;
+import Fragments.DateGeneraleFragment;
+import Fragments.FurnizorFragment;
 
 public class DetailsActivity extends Fragment {
     /*Bundle bundle = this.getArguments();
     int ceva = bundle.getInt("ceva");*/
-    @Nullable
+
+    private SectionsPagerAdapter mSectionsPagerAdapter;
+
+    private SectionsPagerAdapter mSectionsPagerAdapter;
+
+
+
+
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.activity_details, container, false);
-    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        getActivity().setTitle("Details");
-        mTextMessage = (TextView) getActivity().findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) getActivity().findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
-
-    }
-
-    private TextView mTextMessage;
-
-    private void initCampuri(){
-        TextView dt = (TextView) getActivity().findViewById(R.id.dtEstEm);
-        dt.setVisibility(View.INVISIBLE);
-    }
-
-    private void setDateGenerale(){
-        TextView dt = (TextView) getActivity().findViewById(R.id.dtEstEm);
-        Bundle bundle = this.getArguments();
-        dt.setVisibility(View.VISIBLE);
-        dt.setText(bundle.getString("ceva"));
-    }
-
-    private void setFurnizori(){
-        TextView dt = (TextView) getActivity().findViewById(R.id.dtEstEm);
-        dt.setVisibility(View.VISIBLE);
-        dt.setText("15/09/2017");
-    }
-
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            initCampuri();
-
-            switch (item.getItemId()) {
-                case R.id.navigation_dateGenerale:
-                    setDateGenerale();
-
-                    mTextMessage.setText(R.string.title_dateGenerale);
-                    return true;
-                case R.id.navigation_furnizori:
-                    setFurnizori();
-                    mTextMessage.setText(R.string.title_furnizor);
-                    return true;
-                case R.id.navigation_client:
-                    mTextMessage.setText(R.string.title_client);
-                    return true;
-            }
-            return false;
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
         }
 
-    };
+        return super.onOptionsItemSelected(item);
+    }
+
+    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+
+        public SectionsPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+
+            switch (position) {
+                case 0:
+                    ClientFragment tab1 = new ClientFragment();
+                    return tab1;
+                case 1:
+                    DateGeneraleFragment tab2 = new DateGeneraleFragment();
+                    return tab2;
+                case 2:
+                    FurnizorFragment tab3 = new FurnizorFragment();
+                    return tab3;
+                default:
+                    return null;
+            }
+        }
+
+        @Override
+        public int getCount() {
+            // Show 3 total pages.
+            return 3;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            switch (position) {
+                case 0:
+                    return "CLIENT";
+                case 1:
+                    return "DATE GENERALE";
+                case 2:
+                    return "FURNIZOR";
+            }
+            return null;
+        }
+    }
+
 
 }
