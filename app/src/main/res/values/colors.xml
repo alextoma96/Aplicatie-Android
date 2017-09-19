@@ -3,4 +3,17 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="colorPrimaryBlue">#b1d8ea</color>
+    <color name="colorPrimaryDarkBlue">#066a99</color>
+    <color name="colorAccentBlue">#376278</color>
+
+    <color name="colorPrimaryTurquoise">#4db6ac</color>
+    <color name="colorPrimaryDarkTurquoise">#004d40</color>
+    <color name="colorAccentTurquoise">#009688</color>
+
+    <color name="colorPrimaryMarsala">#b63e52</color>
+    <color name="colorPrimaryDarkMarsala">#69081d</color>
+    <color name="colorAccentMarsala">#bc558e</color>
+
 </resources>

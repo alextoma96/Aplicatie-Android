@@ -25,4 +25,25 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="AppThemeTurquoise" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimaryTurquoise</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkTurquoise</item>
+        <item name="colorAccent">@color/colorAccentTurquoise</item>
+    </style>
+
+    <style name="AppThemeBlue" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimaryBlue</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkBlue</item>
+        <item name="colorAccent">@color/colorAccentBlue</item>
+    </style>
+
+    <style name="AppThemeMarsala" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimaryMarsala</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkMarsala</item>
+        <item name="colorAccent">@color/colorAccentMarsala</item>
+    </style>
+
 </resources>
