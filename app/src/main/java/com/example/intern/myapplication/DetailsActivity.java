@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class DetailsActivity extends Fragment {
+    /*Bundle bundle = this.getArguments();
+    int ceva = bundle.getInt("ceva");*/
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class DetailsActivity extends Fragment {
         BottomNavigationView navigation = (BottomNavigationView) getActivity().findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+
     }
 
     private TextView mTextMessage;
@@ -39,8 +42,9 @@ public class DetailsActivity extends Fragment {
 
     private void setDateGenerale(){
         TextView dt = (TextView) getActivity().findViewById(R.id.dtEstEm);
+        Bundle bundle = this.getArguments();
         dt.setVisibility(View.VISIBLE);
-        dt.setText("14/09/2017");
+        dt.setText(bundle.getString("ceva"));
     }
 
     private void setFurnizori(){

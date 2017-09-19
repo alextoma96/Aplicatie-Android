@@ -5,6 +5,7 @@ import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,13 +44,20 @@ public class FacturiActivity extends Fragment implements Constant{
         lvFacturi = (ListView) getActivity().findViewById(R.id.lista_lv_facturi);
         ArrayAdapter<Factura> adapter = new ArrayAdapter<Factura>(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, listaFacturi);
         lvFacturi.setAdapter(adapter);
-
         lvFacturi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getActivity().getApplicationContext(), FacturaDetailsActivity.class);
+                /*Intent intent = new Intent(getActivity().getApplicationContext(), FacturaDetailsActivity.class);
                 intent.putExtra(FACTURA_KEY, position);
-                startActivity(intent);
+                startActivity(intent);*/
+                Fragment fragment = new DetailsActivity();
+                FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+                Bundle bundle = new Bundle();
+                int idd = (int) id;
+                bundle.putString("ceva", listaFacturi.get(idd).getClient().getNume().toString());
+                fragment.setArguments(bundle);
+                ft.replace(R.id.content_main, fragment);
+                ft.commit();
             }
         });
     }
