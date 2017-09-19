@@ -1,7 +1,6 @@
 package com.example.intern.myapplication;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
@@ -15,6 +14,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
+
+import Fragments.ArticoleFragment;
 
 
 public class MainActivity extends AppCompatActivity
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity
                 fragment = new FacturiActivity();
                 break;
             case R.id.nav_aboutUs:
-               fragment = new DetailsActivity();
+               fragment = new ArticoleFragment();
                 break;
             case R.id.nav_settings:
                 fragment = new SettingsActivity();
